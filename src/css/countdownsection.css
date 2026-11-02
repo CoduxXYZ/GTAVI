@@ -1,0 +1,51 @@
+.countdown-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 22px);
+}
+.countdown-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+.countdown-number {
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 13.5vw, 9.5rem);
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.5);
+}
+.countdown-label {
+  font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.countdown-sep {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 9vw, 6.5rem);
+  line-height: 1;
+  opacity: 0.55;
+  padding-top: 0.1em;
+}
+.countdown-sub {
+  margin: 14px 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.countdown-note {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.release-day {
+  font-family: var(--display);
+  font-size: clamp(2rem, 7vw, 4rem);
+  text-transform: uppercase;
+  margin: 0;
+}
+@media (max-width: 560px) {
+  .countdown-sep { display: none; }
+}

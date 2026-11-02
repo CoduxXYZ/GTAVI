@@ -1,0 +1,55 @@
+.slideshow {
+  --fade: 4.2s;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #0c0418;
+  animation: stageIn 2.4s ease both;
+}
+@keyframes stageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* The incoming picture fades in ON TOP of the outgoing one, so the screen
+   never dips to dark halfway through a transition. */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--fade) cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  will-change: opacity, transform;
+  transform-origin: var(--ox, 50%) var(--oy, 50%);
+}
+.slide:nth-child(3n + 1) { --ox: 30%; --oy: 60%; }
+.slide:nth-child(3n + 2) { --ox: 70%; --oy: 40%; }
+.slide:nth-child(3n) { --ox: 50%; --oy: 70%; }
+.slide.leaving { opacity: 1; z-index: 1; }
+.slide.active { opacity: 1; z-index: 2; }
+.slide.active,
+.slide.leaving {
+  animation: kenburns 16s ease-out forwards;
+}
+@keyframes kenburns {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.13); }
+}
+
+.slideshow-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(12, 4, 24, 0.6) 0%, rgba(12, 4, 24, 0.08) 26%, rgba(12, 4, 24, 0.2) 48%, rgba(12, 4, 24, 0.9) 100%),
+    radial-gradient(120% 90% at 50% 40%, transparent 38%, rgba(12, 4, 24, 0.55) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide.active,
+  .slide.leaving { animation: none; }
+}

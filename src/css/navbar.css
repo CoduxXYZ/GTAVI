@@ -1,0 +1,105 @@
+.navBar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: min(400px, 100vw);
+  height: 100svh;
+  padding: 100px 22px 28px;
+  overflow-y: auto;
+  background: rgba(15, 5, 34, 0.94);
+  border-left: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+.navbar-title {
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.trailers-wrapper {
+  display: grid;
+  gap: 16px;
+}
+.trailer-box {
+  display: block;
+  text-decoration: none;
+}
+.trailer-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.trailer-text-box h3 {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}
+.trailer-text-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.navbar-title-spaced {
+  margin-top: 36px;
+}
+.community-wrapper {
+  display: grid;
+  gap: 14px;
+}
+.community-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 243, 230, 0.04);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.community-box:hover {
+  background: rgba(255, 243, 230, 0.09);
+}
+.community-box h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.community-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.community-tag {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.community-tag.official {
+  background: #ffb347;
+  border-color: #ffb347;
+  color: #1a0a33;
+}
+.community-join {
+  font-weight: 700;
+  color: #ffb347;
+}
